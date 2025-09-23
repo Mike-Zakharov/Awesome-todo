@@ -1,4 +1,5 @@
 import "../styles/header.css";
+import Icon from "./Icon";
 
 export default function Header() {
   return (
@@ -10,8 +11,12 @@ export default function Header() {
       </div>
       <div className="btn-group">
         <div>
-          <button>1</button>
-          <button>2</button>
+          <button className="btn">
+            <Icon name="bell" className="icon" size={20} />
+          </button>
+          <button className="btn">
+            <Icon name="calendar" className="icon" size={20} />
+          </button>
         </div>
         <div>Calendar</div>
       </div>
