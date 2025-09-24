@@ -1,10 +1,11 @@
 import type { IconProps } from "./typeIconProps";
 
-export default function MailIcon({ className, px }: IconProps) {
+export default function MailIcon({ className, px, color }: IconProps) {
   return (
     <svg
       width={px}
       height={px}
+      fill={color}
       className={className}
       viewBox="0 0 26 20"
       xmlns="http://www.w3.org/2000/svg"

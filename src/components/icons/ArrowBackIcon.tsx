@@ -1,10 +1,11 @@
 import type { IconProps } from "./typeIconProps";
 
-export default function ArrowBackIcon({ className, px }: IconProps) {
+export default function ArrowBackIcon({ className, px, color }: IconProps) {
   return (
     <svg
       width={px}
       height={px}
+      fill={color}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"

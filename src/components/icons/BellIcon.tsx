@@ -1,10 +1,11 @@
 import type { IconProps } from "./typeIconProps";
 
-export default function BellIcon({ className, px }: IconProps) {
+export default function BellIcon({ className, px, color }: IconProps) {
   return (
     <svg
       width={px}
       height={px}
+      fill={color}
       viewBox="0 0 15 16"
       className={className}
       xmlns="http://www.w3.org/2000/svg"

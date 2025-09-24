@@ -12,10 +12,10 @@ export default function Header() {
       <div className="btn-group">
         <div>
           <button className="btn">
-            <Icon name="bell" size="s" />
+            <Icon name="bell" size="s" color="white" />
           </button>
           <button className="btn">
-            <Icon name="calendar" size="s" />
+            <Icon name="calendar" size="s" color="white" />
           </button>
         </div>
         <div>Calendar</div>

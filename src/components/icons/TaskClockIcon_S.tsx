@@ -1,6 +1,6 @@
 import type { IconProps } from "./typeIconProps";
 
-export default function TaskClockIcon_S({ className, px }: IconProps) {
+export default function TaskClockIcon_S({ className, px, color }: IconProps) {
   return (
     <svg
       width={px}
@@ -8,7 +8,7 @@ export default function TaskClockIcon_S({ className, px }: IconProps) {
       className={`${className} lucide lucide-clipboard-clock-icon lucide-clipboard-clock`}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
