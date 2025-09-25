@@ -1,13 +1,16 @@
 import { Outlet } from "react-router";
-import "./App.css";
 import Header from "./components/header";
+import { Sidebar } from "./components/sidebar";
 
 export function App() {
   return (
     <>
       <Header />
-      <h1>Awesome Todo</h1>
-      <Outlet />
+      <Sidebar />
+      <div className="conteiner">
+        <h1>Awesome Todo</h1>
+        <Outlet />
+      </div>
     </>
   );
 }
