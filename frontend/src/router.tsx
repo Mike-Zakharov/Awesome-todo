@@ -1,35 +1,47 @@
 import { createBrowserRouter } from "react-router";
-import { App } from "./app.tsx";
-import { Dashboard } from "./pages/dashboard.tsx";
-import { MyTask } from "./pages/my-task.tsx";
-import { AccountInfo } from "./pages/account-info.tsx";
-import { TaskCategories } from "./pages/task-categories.tsx";
-import { VitalTask } from "./pages/vital-task.tsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    lazy: async () => {
+      const { App } = await import("./app");
+      return { Component: App };
+    },
     children: [
       {
         path: "/",
-        element: <Dashboard />,
+        lazy: async () => {
+          const { Dashboard } = await import("./pages/dashboard");
+          return { Component: Dashboard };
+        },
       },
       {
         path: "account-info",
-        element: <AccountInfo />,
+        lazy: async () => {
+          const { AccountInfo } = await import("./pages/account-info");
+          return { Component: AccountInfo };
+        },
       },
       {
         path: "my-task",
-        element: <MyTask />,
+        lazy: async () => {
+          const { MyTask } = await import("./pages/my-task");
+          return { Component: MyTask };
+        },
       },
       {
         path: "task-categories",
-        element: <TaskCategories />,
+        lazy: async () => {
+          const { TaskCategories } = await import("./pages/task-categories");
+          return { Component: TaskCategories };
+        },
       },
       {
         path: "vital-task",
-        element: <VitalTask />,
+        lazy: async () => {
+          const { VitalTask } = await import("./pages/vital-task");
+          return { Component: VitalTask };
+        },
       },
     ],
   },

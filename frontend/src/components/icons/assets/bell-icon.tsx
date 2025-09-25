@@ -1,4 +1,4 @@
-import type { IconProps } from "../type-icon-props";
+import type { IconProps } from "../types";
 
 export function BellIcon({ className, px, color }: IconProps) {
   return (

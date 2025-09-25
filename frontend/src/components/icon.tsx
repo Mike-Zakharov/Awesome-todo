@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from "react";
-import { DinamicIcon } from "./icons/dinamic-icon";
+import { ICONS_MAP } from "./icons/config";
 
 export type IconSize = "s" | "m" | "l";
 export interface IconProps extends HTMLAttributes<HTMLImageElement> {
-  name: string;
+  name: keyof typeof ICONS_MAP;
   size?: IconSize;
   className?: string;
   color?: string;
@@ -15,7 +15,7 @@ const SIZE_MAP: Record<IconSize, number> = {
   l: 24,
 };
 /**
-  Инструкция к Icon: все иконки управляются через этот HOC,
+  Инструкция к Icon: все иконки управляются через этот компонент,
   все name в файле ICONS.tsx, постфикс "_S" указывает на stroke, в остальных случаях используется fill
   исключение edit-name_F_S тут используется оба свойства управления цветом
   SIZE_MAP для более удобного управления размерами иконок,
@@ -24,7 +24,10 @@ const SIZE_MAP: Record<IconSize, number> = {
  */
 export function Icon({ name, size = "l", className = "", color }: IconProps) {
   const px = SIZE_MAP[size];
-  return (
-    <DinamicIcon name={name} className={className} px={px} color={color} />
-  );
+  const DinamicIcon = ICONS_MAP[name];
+
+  if (!DinamicIcon) {
+    return null;
+  }
+  return <DinamicIcon className={className} px={px} color={color} />;
 }

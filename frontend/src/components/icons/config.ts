@@ -19,7 +19,7 @@ import { SettingsIcon } from "./assets/settings-icon";
 import { TaskClockIcon_S } from "./assets/task-clock-icon_S";
 import { TaskCompliteIcon } from "./assets/task-complite-icon";
 import { UserIcon } from "./assets/user-icon";
-import type { IconProps } from "./type-icon-props";
+import type { IconProps } from "./types";
 
 export type Icons = {
   [key: string]: React.FC<IconProps>;

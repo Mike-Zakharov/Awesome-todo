@@ -1,7 +1,7 @@
 import "../styles/header.css";
 import { Icon } from "./icon.tsx";
 
-export default function Header() {
+export function Header() {
   return (
     <header className="header">
       <div>Заголовок страницы</div>
