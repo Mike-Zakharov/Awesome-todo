@@ -47,8 +47,6 @@ todosRouter.put("/:id", async (req, res) => {
 
 // удалить таску
 todosRouter.delete("/:id", async (req, res) => {
-  console.log("id:", req.params.id, typeof req.params.id);
-
   try {
     const deletedTodo = await todoModel.findByIdAndDelete(req.params.id);
     if (!deletedTodo) {

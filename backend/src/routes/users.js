@@ -4,11 +4,11 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { authMiddleware } from "../auth-middleware.js";
 
-const usersRouter = express.Router();
+const authRouter = express.Router();
 
 usersRouter.get("/users", async (rea, res) => {
   const users = await userModel.find();
-  res.json(users);
+  res.status(200).json(users);
 });
 
 // Регистрация
@@ -33,7 +33,7 @@ usersRouter.post("/register", async (req, res) => {
 
   await newUser.save();
 
-  res.json({
+  res.status(200).json({
     message: "Пользователь зарегистрирован!",
     user: { email: newUser.email, id: newUser._id },
   });
@@ -84,4 +84,4 @@ usersRouter.get("/me", authMiddleware, async (req, res) => {
   }
 });
 
-export default usersRouter;
+export default authRouter;

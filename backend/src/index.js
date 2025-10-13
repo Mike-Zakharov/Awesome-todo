@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import todosRouter from "./routes/todos.js";
-import usersRouter from "./routes/users.js";
+import authRouter from "./routes/users.js";
 
 const app = express();
 const PORT = 3000;
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/todos", todosRouter);
-app.use("/", usersRouter);
+app.use("/auth", authRouter);
 
 app.use((req, res) => {
   res.status(404).send("Совсем ничего не нашли");
