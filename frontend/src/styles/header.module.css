@@ -7,8 +7,19 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0 76px;
+  background-color: var(--gray-bg);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn_group {
   display: flex;
+}
+
+.btns_wrapper {
+  display: flex;
+  margin-right: 40px;
+  > button:first-child {
+    margin-right: 8px;
+  }
 }

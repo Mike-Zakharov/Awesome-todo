@@ -1,3 +1,5 @@
+import styles from "../styles/header-title.module.css";
+
 export type headerTitleProps = {
   title:
     | "/"
@@ -8,36 +10,43 @@ export type headerTitleProps = {
 };
 
 export function HeaderTitle({ title }: headerTitleProps) {
+  let text = <></>;
   switch (title) {
     case "/":
-      return (
-        <h2>
+      text = (
+        <>
           <span>Dash</span>board
-        </h2>
+        </>
       );
+      break;
     case "/vital-task":
-      return (
-        <h2>
-          <span>Vital</span>-task
-        </h2>
+      text = (
+        <>
+          <span>Vital</span> task
+        </>
       );
+      break;
     case "/my-task":
-      return (
-        <h2>
-          <span>My-</span>task
-        </h2>
+      text = (
+        <>
+          <span>My</span> task
+        </>
       );
+      break;
     case "/task-categories":
-      return (
-        <h2>
-          <span>Task-</span>categories
-        </h2>
+      text = (
+        <>
+          <span>Task</span> categories
+        </>
       );
+      break;
     case "/account-info":
-      return (
-        <h2>
-          <span>Account</span>-info
-        </h2>
+      text = (
+        <>
+          <span>Account</span> info
+        </>
       );
+      break;
   }
+  return <h2 className={styles.title}>{text}</h2>;
 }

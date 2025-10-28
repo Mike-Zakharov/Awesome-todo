@@ -1,0 +1,8 @@
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--black);
+  > span {
+    color: var(--primary);
+  }
+}

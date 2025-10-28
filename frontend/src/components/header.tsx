@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import { HeaderTitle, type headerTitleProps } from "./header-title.tsx";
 import buttonStyles from "../styles/button.module.css";
 import styles from "../styles/header.module.css";
+import { Search } from "./search.tsx";
 
 export function Header() {
   const location = useLocation();
@@ -33,12 +34,9 @@ export function Header() {
   return (
     <header className={styles.header}>
       <HeaderTitle title={titleType} />
-      <div>
-        <input type="search" placeholder="Search your task here..." />
-        <button>Поиск</button>
-      </div>
+      <Search />
       <div className={styles.btn_group}>
-        <div>
+        <div className={styles.btns_wrapper}>
           <button className={buttonStyles.btn}>
             <Icon name="bell" size="s" color="white" />
           </button>
