@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import { Icon } from "./icon";
+import styles from "../styles/sidebar.module.css";
 
 export function Sidebar() {
   return (
-    <nav className="nav">
+    <nav className={styles.nav}>
       <Link to="/">
         <Icon name="dashboard" size="l" color="#fff" />
         Dashboard
