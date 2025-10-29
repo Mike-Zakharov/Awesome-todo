@@ -1,14 +1,14 @@
 import { Outlet } from "react-router";
-import { Header } from "./components/header";
-import { Sidebar } from "./components/sidebar";
-import styles from "./styles/app.module.css";
+import { Header } from "../header/header";
+import { Sidebar } from "../sidebar/sidebar.tsx";
+import styles from "./app.module.css";
 
 export function App() {
   return (
     <>
       <Header />
       <Sidebar />
-      <div className={styles.conteiner}>
+      <div className={styles.container}>
         <Outlet />
       </div>
     </>

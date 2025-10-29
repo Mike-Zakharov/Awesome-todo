@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { Icon } from "./icon";
-import styles from "../styles/sidebar.module.css";
+import { Icon } from "../icon";
+import styles from "./sidebar.module.css";
 
 export function Sidebar() {
   return (

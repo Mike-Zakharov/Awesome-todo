@@ -4,7 +4,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     lazy: async () => {
-      const { App } = await import("./app");
+      const { App } = await import("./components/app/app");
       return { Component: App };
     },
     children: [

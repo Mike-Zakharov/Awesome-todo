@@ -1,6 +1,6 @@
-import buttonStyles from "../styles/button.module.css";
-import { Icon } from "./icon";
-import styles from "../styles/search.module.css";
+import buttonStyles from "../button/button.module.css";
+import { Icon } from "../icon";
+import styles from "./search.module.css";
 
 export function Search() {
   return (

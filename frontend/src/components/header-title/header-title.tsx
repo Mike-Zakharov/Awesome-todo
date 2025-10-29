@@ -1,17 +1,32 @@
-import styles from "../styles/header-title.module.css";
+import styles from "./header-title.module.css";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
-export type headerTitleProps = {
-  title:
-    | "/"
-    | "/vital-task"
-    | "/my-task"
-    | "/task-categories"
-    | "/account-info";
-};
+const titleTypes = [
+  "/",
+  "/vital-task",
+  "/my-task",
+  "/task-categories",
+  "/account-info",
+] as const;
 
-export function HeaderTitle({ title }: headerTitleProps) {
+type TitleType = (typeof titleTypes)[number];
+
+export function HeaderTitle() {
+  const location = useLocation();
+  const [titleType, setTitleType] = useState(location.pathname);
+
+  useEffect(() => {
+    if (titleTypes.includes(location.pathname as TitleType)) {
+      setTitleType(location.pathname as TitleType);
+    } else {
+      setTitleType("/");
+    }
+  }, [location.pathname]);
+
   let text = <></>;
-  switch (title) {
+
+  switch (titleType) {
     case "/":
       text = (
         <>
