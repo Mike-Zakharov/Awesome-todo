@@ -1,67 +1,26 @@
+import { type ROUTESType } from "../../config/constans";
 import styles from "./header-title.module.css";
-import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
-const titleTypes = [
-  "/",
-  "/vital-task",
-  "/my-task",
-  "/task-categories",
-  "/account-info",
-] as const;
+type TTitle = { firstWord: string; secondWord: string };
 
-type TitleType = (typeof titleTypes)[number];
+const MAP: Record<ROUTESType, TTitle> = {
+  "/": { firstWord: "Dash", secondWord: "bord" },
+  "/vital-task": { firstWord: "Vital", secondWord: " task" },
+  "/my-task": { firstWord: "My", secondWord: " task" },
+  "/task-categories": { firstWord: "Task", secondWord: " categories" },
+  "/account-info": { firstWord: "Account", secondWord: " info" },
+};
 
 export function HeaderTitle() {
   const location = useLocation();
-  const [titleType, setTitleType] = useState(location.pathname);
 
-  useEffect(() => {
-    if (titleTypes.includes(location.pathname as TitleType)) {
-      setTitleType(location.pathname as TitleType);
-    } else {
-      setTitleType("/");
-    }
-  }, [location.pathname]);
+  const title = MAP[location.pathname as ROUTESType];
 
-  let text = <></>;
-
-  switch (titleType) {
-    case "/":
-      text = (
-        <>
-          <span>Dash</span>board
-        </>
-      );
-      break;
-    case "/vital-task":
-      text = (
-        <>
-          <span>Vital</span> task
-        </>
-      );
-      break;
-    case "/my-task":
-      text = (
-        <>
-          <span>My</span> task
-        </>
-      );
-      break;
-    case "/task-categories":
-      text = (
-        <>
-          <span>Task</span> categories
-        </>
-      );
-      break;
-    case "/account-info":
-      text = (
-        <>
-          <span>Account</span> info
-        </>
-      );
-      break;
-  }
-  return <h2 className={styles.title}>{text}</h2>;
+  return (
+    <h2 className={styles.title}>
+      <span>{title.firstWord}</span>
+      {title.secondWord}
+    </h2>
+  );
 }

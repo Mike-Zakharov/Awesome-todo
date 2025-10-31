@@ -1,9 +1,11 @@
 .wrapper {
+  justify-self: center;
   display: flex;
   background-color: #f5f8ff;
   border-radius: 8px;
   box-shadow: -1px 4px 10px rgba(0, 0, 0, 0.1);
   width: max(50%, 600px);
+  margin: 0 auto;
   > input {
     background-color: #f5f8ff;
     width: 100%;

@@ -15,8 +15,26 @@
     display: flex;
     align-items: center;
     color: #fff;
+    text-align: start;
+    width: 288px;
+    height: 60px;
+    border-radius: 8px;
+    padding: 16px;
     > svg {
       margin-right: 16px;
+      fill: #fff;
     }
+    &:focus,
+    &:hover {
+      background-color: var(--gray-bg);
+      color: var(--primary);
+      > svg {
+        fill: var(--primary);
+      }
+    }
+  }
+  a:last-child {
+    margin-top: auto;
+    margin-bottom: 32px;
   }
 }

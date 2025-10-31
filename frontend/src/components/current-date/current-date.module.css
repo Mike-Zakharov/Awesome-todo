@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary);
+  padding-top: 2px;
+  > span {
+    color: var(--black);
+    font-weight: 500;
+    margin-bottom: 4px;
+    letter-spacing: 15;
+  }
+}

@@ -3,6 +3,7 @@ import { HeaderTitle } from "../header-title/header-title.tsx";
 import buttonStyles from "../button/button.module.css";
 import styles from "./header.module.css";
 import { Search } from "../search/search.tsx";
+import { CurrentDate } from "../current-date/current-date.tsx";
 
 export function Header() {
   return (
@@ -18,7 +19,7 @@ export function Header() {
             <Icon name="calendar" size="s" color="white" />
           </button>
         </div>
-        <div>Calendar</div>
+        <CurrentDate />
       </div>
     </header>
   );
