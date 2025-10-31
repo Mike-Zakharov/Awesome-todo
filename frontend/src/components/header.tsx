@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import "../styles/header.css";
+
 import { Icon } from "./icon.tsx";
 import { useLocation } from "react-router";
 import { HeaderTitle, type headerTitleProps } from "./header-title.tsx";
+import buttonStyles from "../styles/button.module.css";
+import styles from "../styles/header.module.css";
 
 export function Header() {
   const location = useLocation();
@@ -17,6 +19,7 @@ export function Header() {
     "/task-categories",
     "/account-info",
   ] as const;
+
   type TitleType = (typeof titleTypes)[number];
 
   useEffect(() => {
@@ -26,19 +29,20 @@ export function Header() {
       setTitleType("/");
     }
   }, [location.pathname]);
+
   return (
-    <header className="header">
+    <header className={styles.header}>
       <HeaderTitle title={titleType} />
       <div>
         <input type="search" placeholder="Search your task here..." />
         <button>Поиск</button>
       </div>
-      <div className="btn-group">
+      <div className={styles.btn_group}>
         <div>
-          <button className="btn">
+          <button className={buttonStyles.btn}>
             <Icon name="bell" size="s" color="white" />
           </button>
-          <button className="btn">
+          <button className={buttonStyles.btn}>
             <Icon name="calendar" size="s" color="white" />
           </button>
         </div>
