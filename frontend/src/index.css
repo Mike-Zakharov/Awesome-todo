@@ -1,6 +1,12 @@
 @import "./styles/base/reset";
+@import "./styles/tokens/colors";
 
-/* Осатвлен только для имитации прокрутки, удалить когда перестанет быть нужным */
 body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--black);
+  background-color: var(--gray-bg);
+  /* только для имитации прокрутки, удалить когда перестанет быть нужным */
   height: 200vh;
 }
