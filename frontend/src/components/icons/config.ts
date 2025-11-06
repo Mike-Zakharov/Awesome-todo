@@ -14,6 +14,7 @@ import { LockIcon } from "./assets/lock-icon";
 import { LockIcon_2 } from "./assets/lock-icon_2";
 import { MailIcon } from "./assets/mail-icon";
 import { MyTaskIcon } from "./assets/my-task-icon";
+import { PlusIcon } from "./assets/plus-icon";
 import { SearchIcon } from "./assets/search-icon";
 import { SettingsIcon } from "./assets/settings-icon";
 import { TaskClockIcon_S } from "./assets/task-clock-icon_S";
@@ -47,4 +48,5 @@ export const ICONS_MAP: Icons = {
   "edit-name_F_S": EditName_F_S,
   "edit-last-name_S": EditLastNameIcon_S,
   "task-clock_S": TaskClockIcon_S,
+  plus: PlusIcon,
 };
