@@ -7,6 +7,4 @@ body {
   font-style: normal;
   color: var(--black);
   background-color: var(--gray-bg);
-  /* только для имитации прокрутки, удалить когда перестанет быть нужным */
-  height: 200vh;
 }

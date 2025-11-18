@@ -1,18 +1,32 @@
 import { createBrowserRouter } from "react-router";
+import { ProtectedRoute } from "./components/redirects";
 
 export const router = createBrowserRouter([
   {
+    path: "/login",
+    lazy: async () => {
+      const { SignIn } = await import("./pages/sign-in/sign-in");
+      return { Component: SignIn };
+    },
+  },
+  {
     path: "/",
     lazy: async () => {
-      const { App } = await import("./components/app/app");
-      return { Component: App };
+      const { AppWithUser } = await import("./components/app/app");
+      return { Component: AppWithUser };
     },
     children: [
       {
         path: "/",
         lazy: async () => {
           const { Dashboard } = await import("./pages/dashboard/dashboard");
-          return { Component: Dashboard };
+          return {
+            Component: () => (
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            ),
+          };
         },
       },
       {
