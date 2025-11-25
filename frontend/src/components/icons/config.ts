@@ -2,7 +2,7 @@ import { ArrowBackIcon } from "./assets/arrow-back-icon";
 import { BellIcon } from "./assets/bell-icon";
 import { CalendarIcon } from "./assets/calendar-icon";
 import { CategoriesIcon } from "./assets/categories-icon";
-import CrossIcon from "./assets/cross-icon";
+import { CrossIcon } from "./assets/cross-icon";
 import { DashboardIcon } from "./assets/dashboard-icon";
 import { DeleteIcon } from "./assets/delete-icon";
 import { EditIcon } from "./assets/edit-icon";

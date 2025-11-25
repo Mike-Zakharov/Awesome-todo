@@ -6,10 +6,11 @@ import styles from "./dashboard.module.css";
 
 export function Dashboard() {
   const username = useAuthStore((s) => s.user?.username);
+  const greeting = username ? `Welcome back, ${username}` : "Welcome back";
 
   return (
     <section className={styles.container}>
-      <h3 className={styles.greeting}>Welcome back, {username}</h3>
+      <h3 className={styles.greeting}>{greeting}</h3>
       <div className={styles.wrapper}>
         <Todos />
         <TaskStatus />

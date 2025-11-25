@@ -1,6 +1,6 @@
 import type { IconProps } from "../types";
 
-export default function CrossIcon({ className, color, px }: IconProps) {
+export function CrossIcon({ className, color, px }: IconProps) {
   return (
     <svg
       width={px}

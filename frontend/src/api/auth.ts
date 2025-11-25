@@ -1,12 +1,12 @@
 import axios from "axios";
 import { BASE_PATH } from "../config/constans";
 
-type TUserLoginProps = {
+type TLoginUserProps = {
   email: string;
   password: string;
 };
 
-export async function userLogin({ email, password }: TUserLoginProps) {
+export async function loginUser({ email, password }: TLoginUserProps) {
   try {
     const res = await axios.post(
       `${BASE_PATH}/auth/login`,
@@ -19,6 +19,11 @@ export async function userLogin({ email, password }: TUserLoginProps) {
 
     return res.data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      const message = error.response?.data?.message || "Ошибка авторизации";
+      throw new Error(message);
+    } else if (error instanceof Error) {
+      throw new Error(error.message);
+    }
   }
 }

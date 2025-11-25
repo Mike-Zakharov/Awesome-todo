@@ -8,9 +8,10 @@ import { withAuth } from "../with-auth.tsx";
 
 function App() {
   const user = useAuthStore((s) => s.user);
+
   return (
     <>
-      {(!user && <SignIn />) || (
+      {user ? (
         <>
           <Header />
           <Sidebar />
@@ -18,6 +19,8 @@ function App() {
             <Outlet />
           </div>
         </>
+      ) : (
+        <SignIn />
       )}
     </>
   );

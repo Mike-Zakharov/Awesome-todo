@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router";
 import InputBase from "../../components/input-base/input-base";
 import styles from "./sign-in.module.css";
 import imageSingIn from "../../img/sign-in-img.png";
-import { userLogin } from "../../api/auth";
+import { loginUser } from "../../api/auth";
 import { useAuthStore } from "../../store/user-store";
 
 export function SignIn() {
@@ -15,10 +15,9 @@ export function SignIn() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    const response = await userLogin({ email, password });
-    if (response) {
-      console.log("signin", response.user);
+    const response = await loginUser({ email, password });
 
+    if (response) {
       setUser(response.user);
       navigate("/");
     }

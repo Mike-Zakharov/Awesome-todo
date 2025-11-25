@@ -35,8 +35,6 @@ export default function InputBase({
     setInputBaseValue("");
   };
 
-  const showCross = !!value.length;
-
   return (
     <div className={styles.wrapper}>
       <div>{label}</div>
@@ -48,8 +46,12 @@ export default function InputBase({
         placeholder={placeholder}
         required
       />
-      {showCross && (
-        <button className={styles.close} onClick={resetValue}>
+      {!!value.length && (
+        <button
+          className={styles.close}
+          onClick={resetValue}
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <Icon name="cross" size="s" />
         </button>
       )}

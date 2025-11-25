@@ -16,10 +16,9 @@ export function withAuth<P extends JSX.IntrinsicAttributes>(
     const setUser = useAuthStore((s) => s.setUser);
     const user = useAuthStore((s) => s.user);
     const navigate = useNavigate();
-    const [isLoading, setLoading] = useState(false);
-    const [isFetched, setIsFetched] = useState(false);
+    const [isLoading] = useState(false);
+    const [, setIsFetched] = useState(false);
     const [isErorr, setIsError] = useState(false);
-    // const [reqUser, setReqUser] = useState<TUser>();
 
     useEffect(() => {
       const checkAuth = async () => {
@@ -41,16 +40,18 @@ export function withAuth<P extends JSX.IntrinsicAttributes>(
         }
         setIsFetched(true);
       };
+
       if (!user) {
         checkAuth();
-      }
-      if (isErorr) {
-        navigate("/login");
       }
     }, [navigate, user, setUser, isErorr]);
 
     if (isLoading) {
       return <div>Loading...</div>;
+    }
+
+    if (isErorr) {
+      navigate("/login");
     }
 
     if (user) {
