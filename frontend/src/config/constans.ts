@@ -7,3 +7,5 @@ export const ROUTES = {
 } as const;
 
 export type ROUTESType = (typeof ROUTES)[keyof typeof ROUTES];
+
+export const BASE_PATH = "http://localhost:3000";

@@ -1,10 +1,8 @@
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "./index.js";
-import { users } from "./users.js";
 
 export function authMiddleware(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1]; // Bearer <token>
+  const token = req.cookies.token;
 
   if (!token) return res.status(401).json({ message: "Токен отсутствует" });
 

@@ -1,0 +1,3 @@
+.container {
+  composes: container from "../sign-in/sign-in.module.css";
+}

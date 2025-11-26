@@ -3,16 +3,17 @@ import { userModel } from "../models/user-model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { authMiddleware } from "../auth-middleware.js";
+import { SECRET_KEY } from "../index.js";
 
 const authRouter = express.Router();
 
-usersRouter.get("/users", async (rea, res) => {
+authRouter.get("/users", async (req, res) => {
   const users = await userModel.find();
   res.status(200).json(users);
 });
 
 // Регистрация
-usersRouter.post("/register", async (req, res) => {
+authRouter.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   const candidat = await userModel.findOne({ email });
@@ -35,12 +36,12 @@ usersRouter.post("/register", async (req, res) => {
 
   res.status(200).json({
     message: "Пользователь зарегистрирован!",
-    user: { email: newUser.email, id: newUser._id },
+    user: { username: newUser.username, id: newUser._id },
   });
 });
 
 // Вход
-usersRouter.post("/login", async (req, res) => {
+authRouter.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await userModel.findOne({ email });
@@ -59,20 +60,21 @@ usersRouter.post("/login", async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true, // Недоступен для JavaScript
-      secure: true, // Только по HTTPS
-      sameSite: "strict", // CSRF protection
+      sameSite: "lax", // CSRF protection
       maxAge: 60 * 60 * 1000, // 24 час в миллисекундах
     });
-    res.json({ message: "Вход успешен", user: { email: user.email } });
+    res.json({
+      message: "Вход успешен",
+      user: { username: user.username, id: user._id },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-usersRouter.get("/me", authMiddleware, async (req, res) => {
+authRouter.get("/me", authMiddleware, async (req, res) => {
   try {
     const user = await userModel.findById(req.user._id);
-    console.log(user);
 
     if (!user) {
       return res.status(404).json({ message: "Пользователь не найден" });
