@@ -6,7 +6,7 @@ import styles from "./dashboard.module.css";
 
 export function Dashboard() {
   const username = useAuthStore((s) => s.user?.username);
-  const greeting = username ? `Welcome back, ${username}` : "Welcome back";
+  const greeting = `Welcome back${username ? `, ${username}` : ""}`;
 
   return (
     <section className={styles.container}>
